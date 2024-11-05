@@ -17,3 +17,17 @@ function App() {
 }
 
 export default App;
+// src/App.jsx
+import React from 'react';
+import WelcomeMessage from './WelcomeMessage'; // Ensure the path is correct
+
+function App() {
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>Welcome to My React App!</h1>
+      <WelcomeMessage /> {/* Renders the imported component */}
+    </div>
+  );
+}
+
+export default App;
