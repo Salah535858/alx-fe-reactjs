@@ -1,32 +1,15 @@
 // src/App.jsx
 import React from 'react';
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
-import UserProfile from './components/UserProfile';
+import ProfilePage from './ProfilePage';
+import UserContext from './UserContext'; // Import the UserContext
 
 function App() {
-    return (
-        <div className="App">
-            <Header />
-            <MainContent />
-            <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-            <Footer />
-        </div>
-    );
-}
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
-export default App;
-// src/App.jsx
-import React from 'react';
-import WelcomeMessage from './WelcomeMessage'; // Ensure the path is correct
-
-function App() {
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Welcome to My React App!</h1>
-      <WelcomeMessage /> {/* Renders the imported component */}
-    </div>
+    <UserContext.Provider value={userData}> {/* Provide the context value */}
+      <ProfilePage />
+    </UserContext.Provider>
   );
 }
 
