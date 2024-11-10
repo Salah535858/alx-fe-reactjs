@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 function Counter() {
-  const [count, setCount] = useState(0);  // Initialize state
+  const [count, setCount] = useState(0); // Initialize state with count as 0
 
   return (
     <div>
-      <p>Current Count: {count}</p>  // Display the current count
-      <button onClick={() => setCount(count + 1)}>Increment</button>  // Increment count
-      <button onClick={() => setCount(count - 1)}>Decrement</button>  // Decrement count
-      <button onClick={() => setCount(0)}>Reset</button>  // Reset count
+      <p>Current Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <button onClick={() => setCount(0)}>Reset</button>
     </div>
   );
 }
