@@ -3,9 +3,10 @@ import React from 'react';
 
 function Footer() {
     return (
-        <footer>
-            <p>© 2023 City Lovers</p>
-        </footer>
+
+        <footer style={{ backgroundColor: 'navy', color: 'white', padding: '10px', textAlign: 'center' }}>
+  <p>© 2023 City Lovers</p>
+</footer>
     );
 }
 
