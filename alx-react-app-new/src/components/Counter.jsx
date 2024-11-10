@@ -1,7 +1,8 @@
+// src/components/Counter.jsx
 import React, { useState } from 'react';
 
 function Counter() {
-  const [count, setCount] = useState(0); // Initialize state with count as 0
+  const [count, setCount] = useState(0); // Initialize count state
 
   return (
     <div>
@@ -14,3 +15,4 @@ function Counter() {
 }
 
 export default Counter;
+
