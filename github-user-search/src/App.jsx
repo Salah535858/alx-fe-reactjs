@@ -1,11 +1,11 @@
-import Search from './components/Search'; // Import the Search component
+// src/main.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css'; // Ensure you're importing index.css here
+import App from './App';
 
-const App = () => {
-    return (
-        <div>
-            <Search /> {/* Use the Search component here */}
-        </div>
-    );
-};
-
-export default App;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

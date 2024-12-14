@@ -127,3 +127,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

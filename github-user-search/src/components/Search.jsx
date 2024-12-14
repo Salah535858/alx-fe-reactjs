@@ -18,6 +18,7 @@ const Search = () => {
         try {
             const data = await fetchUserData(username, location, minRepos); // Call the API function with advanced filters
             setUser(data); // Set the fetched user data to state
+        // eslint-disable-next-line no-unused-vars
         } catch (err) {
             setError('Looks like we can’t find the user'); // Set error message if API fails
         } finally {

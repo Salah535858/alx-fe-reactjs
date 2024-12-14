@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // Function to fetch user data based on GitHub username and advanced filters (location, minRepos)
 export const fetchUserData = async (username, location, minRepos) => {
+    // eslint-disable-next-line no-useless-catch
     try {
         let query = username ? `user:${username}` : ''; // Start query with the username
         if (location) {
@@ -18,4 +19,3 @@ export const fetchUserData = async (username, location, minRepos) => {
         throw error; // Throw the error if the API call fails
     }
 };
-
