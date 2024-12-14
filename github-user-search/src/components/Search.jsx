@@ -17,7 +17,7 @@ const Search = () => {
             const data = await fetchUserData(username); // Call the API function
             setUser(data); // Set the fetched user data to state
         } catch (err) {
-            setError("Looks like we can’t find the user."); // Set error message if API fails
+            setError("Looks like we cant find the user"); // Set error message if API fails
         } finally {
             setLoading(false); // Set loading to false once the API call is done
         }
