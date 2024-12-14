@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react'; // We still need to import useState
 
-function App() {
-  const [count, setCount] = useState(0)
+import { searchUsers } from './services/githubService'; // Import the search function from the service
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => {
+    const [query, setQuery] = useState(''); // State to store the input query
+    const [users, setUsers] = useState([]); // State to store the users returned from the API
 
-export default App
+    // Function to handle the search
+    const handleSearch = async () => {
+        try {
+            const data = await searchUsers(query); // Call the API function
+            setUsers(data.items); // Set the users data to state
+        } catch (error) {
+            console.error('Error searching users:', error); // Handle any errors
+        }
+    };
+
+    return (
+        <div>
+            <h1>GitHub User Search</h1>
+            <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)} // Update the query state
+                placeholder="Search GitHub users"
+            />
+            <button onClick={handleSearch}>Search</button> {/* Trigger search on click */}
+            
+            <ul>
+                {users.length > 0 ? (
+                    users.map((user) => (
+                        <li key={user.id}>
+                            <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                                {user.login}
+                            </a>
+                        </li>
+                    ))
+                ) : (
+                    <li>No users found.</li> // If no users are found, display this message
+                )}
+            </ul>
+        </div>
+    );
+};
+
+export default App;
